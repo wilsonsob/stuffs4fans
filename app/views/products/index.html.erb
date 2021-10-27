@@ -1,8 +1,13 @@
-<h1>List of Products</h1>
 
+<h1>List of Products</h1>
 <ul>
 <% @products.each do |product| %>
   <li><%= link_to product.name, product_path(product) %></li>
 <% end %>
 </ul>
 
+<br>
+<br>
+<div class="ml-3">
+<p><%= link_to 'Create a new Product', new_product_path %></p>
+</div>

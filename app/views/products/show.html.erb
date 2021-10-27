@@ -6,4 +6,6 @@
 <p> Price R$: <%= @product.price %> </p>
 <p> Stock: <%= @product.category %> </p>
 
+<%= link_to 'Edit', edit_product_path(@product) %>
+<%= link_to 'Remove this product', product_path(@product), method: :delete, data: { confirm: "Are you sure?" } %>
 <%= link_to 'Back to Products', products_path %>
