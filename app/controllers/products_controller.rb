@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
 before_action :find, only: [:show, :edit, :update, :destroy]
-  
+
   def index
-    @products = Product.all
+    @products = policy_scope(Product)
   end
 
   def show
@@ -10,37 +10,45 @@ before_action :find, only: [:show, :edit, :update, :destroy]
 
   def new
     @product = Product.new
+    authorize @product
   end
 
   def create
     @product = Product.new(product_params)
+    @product.user = current_user
+    authorize @product
+
     if @product.save
-      redirect_to products_path(@product)
+      redirect_to products_path(@product), notice: 'Product was successfully created.'
     else
       render :new
     end
   end
-  
+
   def edit
   end
 
   def update
-    @products.update(products_params)
-    redirect_to products_path(@product)
+    if @product.update(product_params)
+    redirect_to @product, notice: 'Product was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
     @product.destroy
-    redirect_to products_path
+    redirect_to products_path, notice: 'Product was successfully destroyed.'
+  end
 
   private
 
   def find
     @product = Product.find(params[:id])
+    authorize @product
   end
 
   def product_params
     params.require(:product).permit(:name, :category, :price, :stock, :description)
   end
-
 end
