@@ -4,6 +4,11 @@ skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @products = policy_scope(Product)
+    if params[:query].blank?
+      @products = Product.all
+    else
+     @products = Product.search_by_name_and_category(params[:query])
+    end
   end
 
   def show
