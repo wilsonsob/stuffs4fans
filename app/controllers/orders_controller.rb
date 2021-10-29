@@ -20,6 +20,7 @@ before_action :find, only: [:show]
     #   render :new
     # end
     @order.save
+
     # redirect_to user_orders_path(@order, current_user), notice: 'Order successfully processed!'
     redirect_to product_path(@product), notice: 'Order successfully processed!'
   end
