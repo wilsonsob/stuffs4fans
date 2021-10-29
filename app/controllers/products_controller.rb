@@ -49,6 +49,6 @@ before_action :find, only: [:show, :edit, :update, :destroy]
   end
 
   def product_params
-    params.require(:product).permit(:name, :category, :price, :stock, :description)
+    params.require(:product).permit(:name, :category, :price, :stock, :description, :photo)
   end
 end
