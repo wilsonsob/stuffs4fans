@@ -1,20 +1,27 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-8">
+      <%= form_tag products_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a Product"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
       <div id="products">
         <h1>List of Products</h1>
-        <ul>
-          <% @products.each do |product| %>
-            <li><h4><%= link_to product.name, product_path(product) %></h4></li>
-            <p>Artist: <%= product.user.artist %></p>
-          <% end %>
-        </ul>
+          <ul>
+            <% @products.each do |product| %>
+              <li><h4><%= link_to product.name, product_path(product) %></h4></li>
+              <p>Artist: <%= product.user.artist %></p>
+            <% end %>
+          </ul>
         <div>
           <p class='btn btn-success'><%= link_to 'Create a new Product', new_product_path %></p>
         </div>
       </div>
-   </div>
+    </div>
   </div>
 </div>
-
 

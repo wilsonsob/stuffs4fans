@@ -5,6 +5,7 @@
 <p> Description: <%= @product.description %> </p>
 <p> Price R$: <%= @product.price %> </p>
 <p> Stock: <%= @product.category %> </p>
+<p> Stock: <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %> </p>
 
 <div class="">
   <% if user_signed_in? %>
