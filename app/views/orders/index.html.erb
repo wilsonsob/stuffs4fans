@@ -2,12 +2,12 @@
 <h1>My orders</h1>
 <p>
 <% @orders.each do |order| %>
-  <li><%= "#{order.id} - #{order.date} - completed" %></li>
+  <p><%= "#{order.id} - #{order.date} - #{order.product.name} - #{order.product.price} - #{order.product.quantity}" %></p>
 <% end %>
 </p>
 
 <br>
 <br>
 <div class="ml-3">
-<%= link_to 'Back to Products', products_path %>
+  <%= link_to 'Back to Products', products_path %>
 </div>

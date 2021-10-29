@@ -2,22 +2,30 @@ class OrdersController < ApplicationController
 before_action :find, only: [:show]
 
   def new
+    @product = Product.find(params[:product_id])
     @order = Order.new
+    authorize @order
   end
 
   def create
-    @order = Order.new(order_params)
+    @product = Product.find(params[:product_id])
+    # @order = Order.new(order_params)
+    @order = Order.new
+    @order.product = @product
     @order.user = current_user
-
-    if @order.save
-      redirect_to orders_path(@order), notice: 'Order successfully processed!'
-    else
-      render :new
-    end
+    authorize @order
+    # if @order.save
+    #   redirect_to orders_path(@order), notice: 'Order successfully processed!'
+    # else
+    #   render :new
+    # end
+    @order.save
+    # redirect_to user_orders_path(@order, current_user), notice: 'Order successfully processed!'
+    redirect_to product_path(@product), notice: 'Order successfully processed!'
   end
 
   def index
-    @orders = Order.all
+    @orders = policy_scope(Order)
   end
 
   def show
@@ -25,11 +33,12 @@ before_action :find, only: [:show]
 
   private
 
-  def order_params
-    params.require(:order).permit(:quantity, :product_id, :user_id, :date)
-  end
+  # def order_params
+  #   params.require(:order).permit(:quantity, :product_id, :user_id, :date)
+  # end
 
   def find
     @order = Order.find(params[:id])
+    authorize @order
   end
 end
