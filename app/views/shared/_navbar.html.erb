@@ -1,15 +1,21 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <h1><i class="fas fa-guitar"></i></h1>
-  
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div>
-  <h1>Stuffs4fans</h1>
+    <h2>Stuffs4fans</h2>
   </div>
 
+  <%= form_tag products_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a product"
+    %>
+    <%= submit_tag "Search", class: "btn-xs btn-warning" %>
+  <% end %>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -36,3 +42,4 @@
     </ul>
   </div>
 </div>
+
