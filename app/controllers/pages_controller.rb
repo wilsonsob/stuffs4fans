@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   def my_offers
     @user = current_user
     if @products == @user.products.blank?
-      redirect_to "You haven't registered any offers yet", root_path
+      redirect_to root_path, notice: "You haven't registered any offers yet"
     else
       @products = @user.products
     end
