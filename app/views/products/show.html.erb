@@ -1,14 +1,25 @@
 <h1>Info about Product</h1>
 
-<p> Product: <%= @product.name %> </p>
-<p> Category: <%= @product.category %> </p>
-<p> Description: <%= @product.description %> </p>
-<p> Price R$: <%= @product.price %> </p>
-<p> Stock: <%= @product.category %> </p>
+
+
+<div class="card-product">
+  <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="card-product-infos">
+    <h2><%= @product.name %></h2>
+    <p> Category: <%= @product.category %> </p>
+    <p><%= @product.description  %> <strong>relevant info</strong> only.</p>
+    <p>Price:<%= @product.price %></p>
+  </div>
+</div>
+
+
+
+
+
+
 
 <%# Não carrega imagem qdo produto for alimentado via seed %>
 <%# <p> Stock: <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill%>
-
 <div class="">
   <% if user_signed_in? %>
       <%=link_to "Buy!", product_orders_path(@product,current_user), method: :post%>
