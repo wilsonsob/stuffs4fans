@@ -26,7 +26,7 @@ class ProductPolicy < ApplicationPolicy
   end
 
   def destroy?
-    is_owner_or_admin?
+    user.admin
   end
 
   private
