@@ -20,11 +20,11 @@
 <br>
 <br>
 
-<% if policy(@product).edit? %>
+<% if user_signed_in? && policy(@product).edit? %>
   <%= link_to 'Edit', edit_product_path(@product) %> |
 <% end %>
 
-<% if policy(@product).destroy? %>
+<% if user_signed_in? && policy(@product).destroy? %>
   <%= link_to 'Remove this product', product_path(@product), method: :delete, data: { confirm: "Are you sure?" } %> |
 <% end %>
 
