@@ -25,7 +25,7 @@ skip_before_action :authenticate_user!, only: %i[index show]
     authorize @product
 
     if @product.save
-      redirect_to products_path(@product), notice: 'Product was successfully created.'
+      redirect_to my_offers_path(current_user), notice: 'Product was successfully created.'
     else
       render :new
     end
