@@ -17,7 +17,8 @@ puts "destroy done!!!"
   user = User.create!(full_name: Faker::Name.name,
                       email: Faker::Internet.email,
                       password: "123456",
-                      artist: Faker::Artist.name)
+                      artist: Faker::Artist.name,
+                      admin: false)
 end
 puts "users done!!!"
 
@@ -31,3 +32,15 @@ puts "users done!!!"
   end
 
 puts "products done!!!"
+
+User.create(full_name: 'Luanda', email: 'luanda@admin.com', password: '123456', admin: true)
+User.create(full_name: 'Eugenia', email: 'eugenia@admin.com', password: '123456', admin: true)
+User.create(full_name: 'Wilson', email: 'eugenia@admin.com', password: '123456', admin: true)
+puts "admins: Eugenia, Luanda e Wilson - done!!!"
+
+User.create(full_name: 'Luanda', email: 'luanda@teste.com', password: '123456', artist: 'Luanda band', admin: false)
+User.create(full_name: 'Eugenia', email: 'eugenia@teste.com', password: '123456', artist: 'Eugenia band', admin: false)
+User.create(full_name: 'Wilson', email: 'eugenia@teste.com', password: '123456', artist: 'Wilson band', admin: false)
+puts "common profiles: Eugenia, Luanda e Wilson - done!!!"
+
+puts "All seeds completed succesfully!!!"
