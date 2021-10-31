@@ -12,6 +12,7 @@ skip_before_action :authenticate_user!, only: %i[index show]
   end
 
   def show
+    @order = Order.new
   end
 
   def new

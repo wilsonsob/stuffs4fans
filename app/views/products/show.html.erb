@@ -10,9 +10,16 @@
 <%# Não carrega imagem qdo produto for alimentado via seed %>
 <%# <p> Stock: <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill%>
 
-<div class="">
+<div class="container">
   <% if user_signed_in? %>
-      <%=link_to "Buy!", product_orders_path(@product,current_user), method: :post%>
+    <%= simple_form_for [@product, @order] do |f| %>
+      <div class="form-inputs">
+        <%= f.input :quantity, input_html: { value: '1' } %>
+      </div>
+      <div class="form-actions">
+        <%= f.submit "Buy", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
   <% else %>
       <%=link_to "Sign in to buy!", new_user_session_path%>
   <% end %>
