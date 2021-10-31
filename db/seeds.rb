@@ -13,23 +13,33 @@ User.destroy_all
 
 puts "destroy done!!!"
 
-5.times do
-  user = User.create!(full_name: Faker::Name.name,
-                      email: Faker::Internet.email,
-                      password: "123456",
-                      artist: Faker::Artist.name,
-                      admin: false)
+10.times do
+  User.create!(full_name: Faker::Name.name,
+               email: Faker::Internet.email,
+               password: "123456",
+               artist: Faker::Artist.name,
+               admin: false)
 end
 puts "users done!!!"
 
-5.times do
-  Product.create!(name: Faker::Commerce.product_name,
-                  category: Faker::Music.instrument,
-                  description: Faker::Lorem.paragraph(sentence_count: 2),
+product_name = ["Tee", "Sweatpants", "Long Sleeve Tee", "Bag", "Sticker Pack",
+                "Baseball Cap", "Pin Set", "Bracelet", "Stainless Steel Camp Mug",
+                "Poster", "Face Mask", "Hoodie", "CD", "Vinyl", "Live Stream Ticket"]
+
+product_category = ["Clothes", "Ticket", "Accessories", "Utilities", "Support"]
+
+product_description = ["Printed on a 60% cotton / 40% polyester unisex tshirt",
+                       "With the artist autograph",
+                       "With original design"]
+
+40.times do
+  Product.create!(name: product_name.sample,
+                  category: product_category.sample,
+                  description: product_description.sample,
                   price: rand(20..150),
                   stock: rand(5..10),
                   user_id: User.all.sample.id)
-  end
+end
 
 puts "products done!!!"
 
