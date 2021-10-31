@@ -9,6 +9,7 @@
               <th class="">Order</th>
               <th class="">Submited at</th>
               <th class="">Product</th>
+              <th class="">Qtd</th>
               <th class="">Artist</th>
               <th class="">$</th>
             </tr>
@@ -16,10 +17,11 @@
               <tr>
                 <td class=""><%= order.user.full_name  %></td>
                 <td class=""><%= order.id  %></td>
-                <td class=""><%= order.created_at  %></td>
+                <td class=""><%= order.created_at.strftime("%d/%m/%Y")  %></td>
                 <td class=""><%= order.product.name  %></td>
+                <td class=""><%= order.quantity.to_i  %></td>
                 <td class=""><%= order.product.user.artist %></td>
-                <td class=""><%= order.product.price %></td>
+                <td class=""><%= (order.product.price * order.quantity.to_i) %></td>
               </tr>
             <% end %>
         </table>

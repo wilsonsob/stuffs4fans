@@ -9,20 +9,18 @@ before_action :find, only: [:show]
 
   def create
     @product = Product.find(params[:product_id])
-    # @order = Order.new(order_params)
-    @order = Order.new
+    @order = Order.new(order_params)
     @order.product = @product
     @order.user = current_user
     authorize @order
-    # if @order.save
-    #   redirect_to orders_path(@order), notice: 'Order successfully processed!'
-    # else
-    #   render :new
-    # end
-    @order.save
+    # @order.save
+    # redirect_to my_orders_path(@product, current_user), notice: 'Order successfully processed!'
+    if @order.save
+      redirect_to my_orders_path(@product, current_user), notice: 'Order successfully processed!'
+    else
+      render :new, notice: 'Enter the quantity!'
+    end
 
-    # redirect_to user_orders_path(@order, current_user), notice: 'Order successfully processed!'
-    redirect_to my_orders_path(@product, current_user), notice: 'Order successfully processed!'
   end
 
   def index
@@ -34,9 +32,9 @@ before_action :find, only: [:show]
 
   private
 
-  # def order_params
-  #   params.require(:order).permit(:quantity, :product_id, :user_id, :date)
-  # end
+  def order_params
+    params.require(:order).permit(:quantity, :product_id, :user_id)
+  end
 
   def find
     @order = Order.find(params[:id])
