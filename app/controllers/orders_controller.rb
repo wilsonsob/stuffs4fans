@@ -15,12 +15,13 @@ before_action :find, only: [:show]
     authorize @order
     # @order.save
     # redirect_to my_orders_path(@product, current_user), notice: 'Order successfully processed!'
-    if @order.save
+    if @order.quantity.to_i <= @order.product.stock.to_i && @order.save
+      @product.stock -= @order.quantity.to_i
+      @product.save!
       redirect_to my_orders_path(@product, current_user), notice: 'Order successfully processed!'
     else
-      render :new, notice: 'Enter the quantity!'
+      redirect_to @product, notice: "Please review the quantity! The stock is #{@product.stock}."
     end
-
   end
 
   def index
