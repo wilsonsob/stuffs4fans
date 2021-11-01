@@ -1,44 +1,52 @@
-/* Float four columns side by side */
+/* Float two columns side by side */
 .column-footer {
-  float: left;
   width: 50%;
-  padding: 0 10px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  background: rgb(20, 20, 20);
+  color: lightgrey;
+  align-self: center;
+  padding: 15px;
+  height: auto;
+  p {
+    text-align: center;
+
+  }
 }
 
 /* Remove extra left and right margins, due to padding in columns */
-.row {margin: 0 -5px;}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-
-
-#footer{
-  text-align: center;
-  padding: 10px;
+.row-footer {
+  margin: 0px;
   background: rgb(20, 20, 20);
-  color: lightgrey;
+  display: flex;
 }
+
+// #footer{
+//   text-align: center;
+//   padding: 40px;
+//   background: rgb(20, 20, 20);
+//   color: lightgrey;
+//   justify-content: center;
+// }
 
 #footer a {
   color: lightgrey;
   font-size: 20px;
+  letter-spacing: 2ch;
 }
 #footer a:hover {
   color: white;
 }
 
 .list-inline {
-  text-align: center;
+  text-align: justify;
   padding: 5px;
   font-weight: lighter;
-  display: flex;
-  justify-content: space-around;
-  flex-flow: row wrap;
+  display: inline-flex;
+  justify-content: space-around ;
+  // flex-flow: row wrap;
   width: 20%;
-  align-items: flex-start;
+  align-items: center;
 }
