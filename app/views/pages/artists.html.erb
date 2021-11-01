@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Artists</h1>
+      <% @users.each do |user| %>
+        <div class="card-text" >
+          <p><%= link_to user.artist, artist_path(user)%></p>
+      <% end %>
+        </div>
+  <div>
+    <p class='btn btn-success'><%= link_to 'Create a new Product', new_product_path %></p>
+  </div>
+</div>

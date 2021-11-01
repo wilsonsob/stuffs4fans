@@ -13,10 +13,10 @@ User.destroy_all
 
 puts "destroy done!!!"
 
-User.create(full_name: 'Switchfeet', email: 'switchfeet@teste.com', password: '123456', artist: 'Switchfeet', admin: false)
-User.create(full_name: 'All Souls Matter', email: 'allsoulsmatter@teste.com', password: '123456', artist: 'All Souls Matter', admin: false)
-User.create(full_name: 'Shake the Dust', email: 'shakethedust@teste.com', password: '123456', artist: 'Shake the Dust', admin: false)
-User.create(full_name: 'Coding Bootcamp', email: 'codingbootcamp@teste.com', password: '123456', artist: 'Coding Bootcamp', admin: false)
+User.create(full_name: 'Switchfeet', email: 'switchfeet@teste.com', password: '123456', artist: 'Switchfeet', admin: false, seller: true)
+User.create(full_name: 'All Souls Matter', email: 'allsoulsmatter@teste.com', password: '123456', artist: 'All Souls Matter', admin: false, seller: true)
+User.create(full_name: 'Shake the Dust', email: 'shakethedust@teste.com', password: '123456', artist: 'Shake the Dust', admin: false, seller: true)
+User.create(full_name: 'Coding Bootcamp', email: 'codingbootcamp@teste.com', password: '123456', artist: 'Coding Bootcamp', admin: false, seller: true)
 
 
 10.times do
@@ -24,7 +24,8 @@ User.create(full_name: 'Coding Bootcamp', email: 'codingbootcamp@teste.com', pas
                email: Faker::Internet.email,
                password: "123456",
                artist: Faker::Artist.name,
-               admin: false)
+               admin: false,
+               seller: false)
 end
 puts "users done!!!"
 
@@ -66,14 +67,14 @@ end
 
 puts "products done!!!"
 
-User.create(full_name: 'Luanda', email: 'luanda@admin.com', password: '123456', admin: true)
-User.create(full_name: 'Eugenia', email: 'eugenia@admin.com', password: '123456', admin: true)
-User.create(full_name: 'Wilson', email: 'eugenia@admin.com', password: '123456', admin: true)
+User.create(full_name: 'Luanda', email: 'luanda@admin.com', password: '123456', admin: true, seller: false)
+User.create(full_name: 'Eugenia', email: 'eugenia@admin.com', password: '123456', admin: true, seller: false)
+User.create(full_name: 'Wilson', email: 'eugenia@admin.com', password: '123456', admin: true, seller: false)
 puts "admins: Eugenia, Luanda e Wilson - done!!!"
 
-User.create(full_name: 'Luanda', email: 'luanda@teste.com', password: '123456', artist: 'Luanda band', admin: false)
-User.create(full_name: 'Eugenia', email: 'eugenia@teste.com', password: '123456', artist: 'Eugenia band', admin: false)
-User.create(full_name: 'Wilson', email: 'wilson@teste.com', password: '123456', artist: 'Wilson band', admin: false)
+User.create(full_name: 'Luanda', email: 'luanda@teste.com', password: '123456', artist: 'Luanda band', admin: false, seller: false)
+User.create(full_name: 'Eugenia', email: 'eugenia@teste.com', password: '123456', artist: 'Eugenia band', admin: false, seller: false)
+User.create(full_name: 'Wilson', email: 'wilson@teste.com', password: '123456', artist: 'Wilson band', admin: false, seller: false)
 puts "common profiles: Eugenia, Luanda e Wilson - done!!!"
 
 puts "All seeds completed succesfully!!!"
