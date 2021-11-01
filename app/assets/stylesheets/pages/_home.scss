@@ -16,7 +16,7 @@ body {
 }
 
 /* Remove extra left and right margins, due to padding in columns */
-.row {margin: 0 -5px;}
+.row {margin: 10px;}
 
 /* Clear floats after the columns */
 .row:after {
@@ -69,6 +69,11 @@ body {
     display: block;
     margin-bottom: 20px;
   }
+}
+
+.row-text {
+  padding: 30px 10px 10px 10px;
+  margin: 10px;
 }
 
 #card-media {
