@@ -1,7 +1,5 @@
 <h1>Info about Product</h1>
 
-
-
 <div class="card-product">
   <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
   <div class="card-product-infos">
@@ -12,14 +10,6 @@
   </div>
 </div>
 
-
-
-
-
-
-
-<%# Não carrega imagem qdo produto for alimentado via seed %>
-<%# <p> Stock: <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill%>
 <div class="container">
   <% if user_signed_in? %>
     <%= simple_form_for [@product, @order] do |f| %>
@@ -33,8 +23,6 @@
   <% else %>
       <%=link_to "Sign in to buy!", new_user_session_path%>
   <% end %>
-
-
 </div>
 
 <br>
