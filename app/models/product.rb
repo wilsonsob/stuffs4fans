@@ -6,8 +6,11 @@ class Product < ApplicationRecord
   has_one_attached :photo
 
   include PgSearch::Model
-  pg_search_scope :search_by_name_and_category,
-    against: [ :name, :category ],
+  pg_search_scope :global_search,
+    against: [:name, :category],
+    associated_against: {
+      user: [:artist]
+    },
     using: {
       tsearch: { prefix: true }
     }

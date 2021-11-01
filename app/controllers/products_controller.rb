@@ -7,7 +7,7 @@ skip_before_action :authenticate_user!, only: %i[index show]
     if params[:query].blank?
       @products = Product.all
     else
-     @products = Product.search_by_name_and_category(params[:query])
+      @products = Product.global_search(params[:query])
     end
   end
 
