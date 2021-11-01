@@ -13,6 +13,12 @@ User.destroy_all
 
 puts "destroy done!!!"
 
+User.create(full_name: 'Switchfeet', email: 'switchfeet@teste.com', password: '123456', artist: 'Switchfeet', admin: false)
+User.create(full_name: 'All Souls Matter', email: 'allsoulsmatter@teste.com', password: '123456', artist: 'All Souls Matter', admin: false)
+User.create(full_name: 'Shake the Dust', email: 'shakethedust@teste.com', password: '123456', artist: 'Shake the Dust', admin: false)
+User.create(full_name: 'Coding Bootcamp', email: 'codingbootcamp@teste.com', password: '123456', artist: 'Coding Bootcamp', admin: false)
+
+
 10.times do
   User.create!(full_name: Faker::Name.name,
                email: Faker::Internet.email,
@@ -26,11 +32,28 @@ product_name = ["Tee", "Sweatpants", "Long Sleeve Tee", "Bag", "Sticker Pack",
                 "Baseball Cap", "Pin Set", "Bracelet", "Stainless Steel Camp Mug",
                 "Poster", "Face Mask", "Hoodie", "CD", "Vinyl", "Live Stream Ticket"]
 
-product_category = ["Clothes", "Ticket", "Accessories", "Utilities", "Support"]
+product_category = ["Clothing", "Ticket", "Accessories", "Media"]
 
-product_description = ["Printed on a 60% cotton / 40% polyester unisex tshirt",
+product_description = ["Excellent quality",
                        "With the artist autograph",
-                       "With original design"]
+                       "Original design"]
+
+Product.create(name: 'Interrobang White Opaque Vinyl', category: 'Media', price: 100, stock: 5,
+               description: 'Limited Edition White Opaque Vinyl *Limited stock remaining!',
+               user_id: 1)
+
+Product.create(name: 'Presence Shirt', category: 'Clothing', price: 40, stock: 20,
+               description: 'You are not here for the sake of a perfect existence. The magic of your soul is not
+               contingent upon flawlessness. Today and always, we need your presence, not your perfection.',
+               user_id: 2)
+
+Product.create(name: 'Pin Sets', category: 'Accessories', price: 30, stock: 10,
+               description: 'Collect all 4 enamel pins in one set!',
+               user_id: 3)
+
+Product.create(name: 'November 30th Livestream Ticket', category: 'Ticket', price: 50, stock: 100,
+               description: 'All live stream details will be emailed as soon as they are set!',
+               user_id: 4)
 
 40.times do
   Product.create!(name: product_name.sample,

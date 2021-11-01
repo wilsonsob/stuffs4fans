@@ -27,10 +27,39 @@ body {
 
 /* Style the counter cards */
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  border-radius: 5px;
   padding: 80px;
+  height: 185px;
   text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+  color: white;
   background-color: #f1f1f1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: white;
+  font-size: 32px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.card .btn:hover {
+  background-color: light;
 }
 
 /* Responsive columns - one column layout (vertical) on small screens */
@@ -40,4 +69,42 @@ body {
     display: block;
     margin-bottom: 20px;
   }
+}
+
+#card-media {
+  background-image: url("media.jpg");
+}
+
+#card-clothing {
+  background-image: url("clothing.webp");
+  background-size: 50%;
+  background-color: #dfdf01;
+}
+
+#card-accessories {
+  background-image: url("accessories.webp");
+  background-size: 70%;
+  background-color: #bcbec2;
+}
+
+#card-ticket {
+  background-image: url("coding-ticket.jpeg");
+  background-size: 50%;
+  background-color: black;
+}
+
+#card-artist1 {
+  background-image: url("artist1.jpg");
+}
+
+#card-artist2 {
+  background-image: url("artist2.jpg");
+}
+
+#card-artist3 {
+  background-image: url("artist3.jpg");
+}
+
+#card-artist4 {
+  background-image: url("artist4.jpg");
 }
