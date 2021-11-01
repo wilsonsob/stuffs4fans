@@ -17,4 +17,13 @@ class PagesController < ApplicationController
       @products = @user.products
     end
   end
+
+  def artists
+    @users = User.where(seller: true)
+  end
+
+  def artist
+    @user = User.find(params[:id])
+    @products = @user.products
+  end
 end

@@ -20,12 +20,13 @@ skip_before_action :authenticate_user!, only: %i[index show]
     authorize @product
   end
 
-  def create
+def create
     @product = Product.new(product_params)
     @product.user = current_user
     authorize @product
-
     if @product.save
+      @product.user.seller = true
+      current_user.save
       redirect_to my_offers_path(current_user), notice: 'Product was successfully created.'
     else
       render :new
