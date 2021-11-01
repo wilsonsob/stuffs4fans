@@ -9,32 +9,32 @@ body {
 }
 
 /* Float four columns side by side */
-.column {
+.column-home {
   float: left;
   width: 25%;
   padding: 0 10px;
 }
 
 /* Remove extra left and right margins, due to padding in columns */
-.row {margin: 10px;}
+.row-home {margin: 10px;}
 
 /* Clear floats after the columns */
-.row:after {
+.row-home:after {
   content: "";
   display: table;
   clear: both;
 }
 
 /* Style the counter cards */
-.card {
+.card-home {
   // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
   border-radius: 5px;
   padding: 80px;
   height: 185px;
   text-align: center;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 30px;
+  font-weight: bolder;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
   color: white;
   background-color: #f1f1f1;
@@ -43,28 +43,9 @@ body {
   background-repeat: no-repeat;
 }
 
-.card .btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: transparent;
-  color: white;
-  font-size: 32px;
-  padding: 12px 24px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.card .btn:hover {
-  background-color: light;
-}
-
 /* Responsive columns - one column layout (vertical) on small screens */
 @media screen and (max-width: 600px) {
-  .column {
+  .column-home {
     width: 100%;
     display: block;
     margin-bottom: 20px;

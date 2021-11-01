@@ -8,13 +8,16 @@
     <h2>Stuffs4fans</h2>
   </div>
 
+
   <%= form_tag products_path, method: :get do %>
+    <div class="d-lg-inline-flex">
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "Find a product"
+      placeholder: "Find an artist or a product"
     %>
-    <%= button_tag do %>Search <i class="fas fa-search" style="color:black"></i><% end %>
+    <%= button_tag do %><i class="fas fa-search" style="color:black"></i><% end %>
+    </div>
   <% end %>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">

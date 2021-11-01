@@ -12,7 +12,6 @@
   height: auto;
   p {
     text-align: center;
-
   }
 }
 
@@ -22,14 +21,6 @@
   background: rgb(20, 20, 20);
   display: flex;
 }
-
-// #footer{
-//   text-align: center;
-//   padding: 40px;
-//   background: rgb(20, 20, 20);
-//   color: lightgrey;
-//   justify-content: center;
-// }
 
 #footer a {
   color: lightgrey;
@@ -46,7 +37,6 @@
   font-weight: lighter;
   display: inline-flex;
   justify-content: space-around ;
-  // flex-flow: row wrap;
   width: 20%;
   align-items: center;
 }
