@@ -18,7 +18,7 @@ User.create(full_name: 'All Souls Matter', email: 'allsoulsmatter@teste.com', pa
 User.create(full_name: 'Shake the Dust', email: 'shakethedust@teste.com', password: '123456', artist: 'Shake the Dust', admin: false, seller: true)
 User.create(full_name: 'Coding Bootcamp', email: 'codingbootcamp@teste.com', password: '123456', artist: 'Coding Bootcamp', admin: false, seller: true)
 
-10.times do
+1.times do
   User.create!(full_name: Faker::Name.name,
                email: Faker::Internet.email,
                password: "123456",
@@ -59,7 +59,7 @@ Product.create(name: 'November 30th Livestream Ticket', category: 'Ticket', pric
                user_id: 4,
                img_url: "https://source.unsplash.com/TE50158gdvs")
 
-10.times do
+1.times do
   Product.create!(name: product_name.sample,
                   category: product_category.sample,
                   description: product_description.sample,

@@ -1,11 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <h1><a href="/"><i class="fas fa-guitar" style="color:whitesmoke"></i></a></h1>
+<div class="ml-4 m-2">
+  <h4><a href="/"><i class="fas fa-guitar" style="color:whitesmoke"></i> </a> Stuffs4fans </h4>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <div>
-    <h2>Stuffs4fans</h2>
   </div>
 
 
@@ -22,11 +20,12 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= current_user.full_name %>
+        <li class="nav-item active mr-3">
+          <%= "Hello, #{current_user.full_name}!" %>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown mr-3">
           <%= image_tag "checked_user.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My Band Products", "/products", class: "dropdown-item" %>
