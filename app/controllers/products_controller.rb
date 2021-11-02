@@ -20,7 +20,7 @@ skip_before_action :authenticate_user!, only: %i[index show]
     authorize @product
   end
 
-def create
+  def create
     @product = Product.new(product_params)
     @product.user = current_user
     authorize @product
