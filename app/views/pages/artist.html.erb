@@ -2,13 +2,13 @@
   <h2><%= @user.artist %></h2>
     <% @products.each do |product| %>
       <div class="card-trip">
-        <img src="https://source.unsplash.com/random/300x300" alt="">
-        <div class="card-product-infos">
-          <div>
-            <h4><%= link_to product.name, product_path(product) %></h4>
-            <p><%= product.description %></p>
-          </div>
-        <h4 class="card-trip-pricing"> $ <%=product.price%></h4>
+        <img src=<%= product.img_url %> />
+          <div class="card-product-infos">
+            <div>
+              <h4><%= link_to product.name, product_path(product) %></h4>
+              <p><%= product.description %></p>
+            </div>
+          <h4 class="card-trip-pricing"> $ <%=product.price%></h4>
         </div>
       </div>
     <% end %>

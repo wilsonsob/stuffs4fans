@@ -18,7 +18,6 @@ User.create(full_name: 'All Souls Matter', email: 'allsoulsmatter@teste.com', pa
 User.create(full_name: 'Shake the Dust', email: 'shakethedust@teste.com', password: '123456', artist: 'Shake the Dust', admin: false, seller: true)
 User.create(full_name: 'Coding Bootcamp', email: 'codingbootcamp@teste.com', password: '123456', artist: 'Coding Bootcamp', admin: false, seller: true)
 
-
 10.times do
   User.create!(full_name: Faker::Name.name,
                email: Faker::Internet.email,
@@ -41,28 +40,33 @@ product_description = ["Excellent quality",
 
 Product.create(name: 'Interrobang White Opaque Vinyl', category: 'Media', price: 100, stock: 5,
                description: 'Limited Edition White Opaque Vinyl *Limited stock remaining!',
-               user_id: 1)
+               user_id: 1,
+               img_url: "https://source.unsplash.com/aK3kzv5yGwU")
 
 Product.create(name: 'Presence Shirt', category: 'Clothing', price: 40, stock: 20,
                description: 'You are not here for the sake of a perfect existence. The magic of your soul is not
                contingent upon flawlessness. Today and always, we need your presence, not your perfection.',
-               user_id: 2)
+               user_id: 2,
+               img_url: "https://source.unsplash.com/TT-ROxWj9nA")
 
 Product.create(name: 'Pin Sets', category: 'Accessories', price: 30, stock: 10,
                description: 'Collect all 4 enamel pins in one set!',
-               user_id: 3)
+               user_id: 3,
+               img_url: "https://source.unsplash.com/etcp7sNcFiU")
 
 Product.create(name: 'November 30th Livestream Ticket', category: 'Ticket', price: 50, stock: 100,
                description: 'All live stream details will be emailed as soon as they are set!',
-               user_id: 4)
+               user_id: 4,
+               img_url: "https://source.unsplash.com/TE50158gdvs")
 
-40.times do
+10.times do
   Product.create!(name: product_name.sample,
                   category: product_category.sample,
                   description: product_description.sample,
                   price: rand(20..150),
                   stock: rand(5..10),
-                  user_id: User.all.sample.id)
+                  user_id: User.all.sample.id,
+                  img_url: "https://source.unsplash.com/collection/4324303")
 end
 
 puts "products done!!!"

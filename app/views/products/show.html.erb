@@ -1,7 +1,11 @@
 <h1>Info about Product</h1>
 
 <div class="card-product">
-  <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+  <% if @product.photo.attached?  %>
+    <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+  <% else %>
+    <img src=<%= @product.img_url %> />
+  <% end %>
   <div class="card-product-infos">
     <h2><%= @product.name %></h2>
     <p> Category: <%= @product.category %> </p>

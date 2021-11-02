@@ -57,6 +57,6 @@ def create
   end
 
   def product_params
-    params.require(:product).permit(:name, :category, :price, :stock, :description, :photo)
+    params.require(:product).permit(:name, :category, :price, :stock, :description, :photo, :img_url)
   end
 end
