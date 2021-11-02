@@ -1,13 +1,23 @@
 
-<div id="products">
-  <h1>List of Products</h1>
-    <ul>
-      <% @products.each do |product| %>
-        <li><h4><%= link_to product.name, product_path(product) %></h4></li>
-        <p>Artist: <%= product.user.artist %></p>
-      <% end %>
-    </ul>
-  <div>
-    <p class='btn btn-success'><%= link_to 'Create a new Product', new_product_path %></p>
-  </div>
+<div class="container mt-5 card-board">
+  <h4 class="text-left"><%= "Products" %></h4>
+  <div class="row ml-5">
+    <% @products.each do |product| %>
+      <div class="col-md-12 col-lg-6">
+        <div class="card-product my-4 mr-4">
+          <% if product.photo.attached?  %>
+            <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+          <% else %>
+            <img src=<%= "#{product.img_url}" %> />
+          <% end %>
+            <div class="card-product-infos">
+              <h5><%= link_to product.name, product_path(product) %></h5>
+              <p id="text-color">Artist: <%= product.user.artist %></p>
+              <p><strong> $ <%= product.price  %></strong></p>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div class="">
+  <p class='btn btn-danger'><%= link_to 'Create a new Product', new_product_path %></p>
 </div>
