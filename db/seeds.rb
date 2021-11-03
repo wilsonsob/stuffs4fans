@@ -39,18 +39,18 @@ file = URI.open('https://source.unsplash.com/aK3kzv5yGwU/300x300')
 product.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
-product2 = Product.create(name: 'Presence Shirt', category: 'Clothing', price: 40, stock: 20,
+product2 = Product.create!(name: 'Presence Shirt', category: 'Clothing', price: 40, stock: 20,
                description: 'You are not here for the sake of a perfect existence. The magic of your soul is not
                contingent upon flawlessness. Today and always, we need your presence, not your perfection.',
-file = URI.open('shirt - https://source.unsplash.com/TT-ROxWj9nA/300x300')
+file = URI.open('https://source.unsplash.com/TT-ROxWj9nA/300x300')
 product2.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-product3 = Product.create(name: 'Pin Sets', category: 'Accessories', price: 30, stock: 10,
+product3 = Product.create!(name: 'Pin Sets', category: 'Accessories', price: 30, stock: 10,
                description: 'Collect all 4 enamel pins in one set!',
 file = URI.open('https://source.unsplash.com/etcp7sNcFiU/300x300')
 product3.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-product4 = Product.create(name: 'November 30th Livestream Ticket', category: 'Ticket', price: 50, stock: 100,
+product4 = Product.create!(name: 'November 30th Livestream Ticket', category: 'Ticket', price: 50, stock: 100,
                description: 'All live stream details will be emailed as soon as they are set!',
 file = URI.open('https://source.unsplash.com/TE50158gdvs/300x300')
 product4.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
