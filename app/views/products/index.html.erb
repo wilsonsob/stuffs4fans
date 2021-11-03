@@ -7,7 +7,7 @@
           <% if product.photo.attached?  %>
             <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
           <% else %>
-            <img src=<%= "#{product.img_url}" %> />
+            <p> SEM FOTO </p>
           <% end %>
             <div class="card-product-infos">
               <h5><%= link_to product.name, product_path(product) %></h5>
