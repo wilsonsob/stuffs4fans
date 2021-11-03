@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <h2><%= @user.artist %></h2>
+  <h3><strong><%= @user.artist %></strong></h3>
     <% @products.each do |product| %>
       <div class="card-product m-3">
         <img src=<%= product.img_url %> />
@@ -12,4 +12,10 @@
         </div>
       </div>
     <% end %>
+    <br>
+    <br>
+      <div class="">
+        <p class='btn btn-info mr-3'><%= link_to 'All artists', artists_path %></p>
+        <p class='btn btn-light'><%= link_to 'Home', root_path %></p>
+      </div>
 </div>
