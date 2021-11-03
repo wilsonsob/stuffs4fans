@@ -8,9 +8,9 @@ User.destroy_all
 puts "destroy done!!!"
 
 user1 = User.create(full_name: 'Switchfeet', email: 'switchfeet@teste.com', password: '123456', artist: 'Switchfeet', admin: false, seller: true)
-User.create(full_name: 'All Souls Matter', email: 'allsoulsmatter@teste.com', password: '123456', artist: 'All Souls Matter', admin: false, seller: true)
-User.create(full_name: 'Shake the Dust', email: 'shakethedust@teste.com', password: '123456', artist: 'Shake the Dust', admin: false, seller: true)
-User.create(full_name: 'Coding Bootcamp', email: 'codingbootcamp@teste.com', password: '123456', artist: 'Coding Bootcamp', admin: false, seller: true)
+user2 = User.create(full_name: 'All Souls Matter', email: 'allsoulsmatter@teste.com', password: '123456', artist: 'All Souls Matter', admin: false, seller: true)
+user3 = User.create(full_name: 'Shake the Dust', email: 'shakethedust@teste.com', password: '123456', artist: 'Shake the Dust', admin: false, seller: true)
+user4 = User.create(full_name: 'Coding Bootcamp', email: 'codingbootcamp@teste.com', password: '123456', artist: 'Coding Bootcamp', admin: false, seller: true)
 
 1.times do
   User.create!(full_name: Faker::Name.name,
@@ -39,21 +39,21 @@ file = URI.open('https://source.unsplash.com/aK3kzv5yGwU/300x300')
 product.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
-# Product.create(name: 'Presence Shirt', category: 'Clothing', price: 40, stock: 20,
-#                description: 'You are not here for the sake of a perfect existence. The magic of your soul is not
-#                contingent upon flawlessness. Today and always, we need your presence, not your perfection.',
-#                user_id: 2,
-#                img_url: "https://res.cloudinary.com/doytrcpmk/image/upload/v1635435589/ryan-hoffman-6Nub980bI3I-unsplash_gqco06.jpg")
+product2 = Product.create(name: 'Presence Shirt', category: 'Clothing', price: 40, stock: 20,
+               description: 'You are not here for the sake of a perfect existence. The magic of your soul is not
+               contingent upon flawlessness. Today and always, we need your presence, not your perfection.',
+file = URI.open('shirt - https://source.unsplash.com/TT-ROxWj9nA/300x300')
+product2.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-# Product.create(name: 'Pin Sets', category: 'Accessories', price: 30, stock: 10,
-#                description: 'Collect all 4 enamel pins in one set!',
-#                user_id: 3,
-#                img_url: "https://res.cloudinary.com/doytrcpmk/image/upload/v1635957839/accessories_thxghu.webp")
+product3 = Product.create(name: 'Pin Sets', category: 'Accessories', price: 30, stock: 10,
+               description: 'Collect all 4 enamel pins in one set!',
+file = URI.open('https://source.unsplash.com/etcp7sNcFiU/300x300')
+product3.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-# Product.create(name: 'November 30th Livestream Ticket', category: 'Ticket', price: 50, stock: 100,
-#                description: 'All live stream details will be emailed as soon as they are set!',
-#                user_id: 4,
-#                img_url: "https://res.cloudinary.com/doytrcpmk/image/upload/v1635178634/aswrmtlpzfath03754hx.jpg")
+product4 = Product.create(name: 'November 30th Livestream Ticket', category: 'Ticket', price: 50, stock: 100,
+               description: 'All live stream details will be emailed as soon as they are set!',
+file = URI.open('https://source.unsplash.com/TE50158gdvs/300x300')
+product4.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 # 1.times do
 #   Product.create!(name: product_name.sample,
