@@ -1,9 +1,23 @@
-<%= simple_form_for(@product) do |f| %>
-  <%= f.input :name, placeholder: 'T-Shirt Besouro Black' %>
-  <%= f.input :category, placeholder: 'Vinil' %>
-  <%= f.input :description, placeholder: 'Bla bla bla' %>
-  <%= f.input :price %>
-  <%= f.input :stock %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit class: "btn btn-success" %>
-<% end %>
+<br>
+<br>
+<br>
+<div class="d-flex justify-content-center">
+  <div class="card text-white bg-success mb-3" style="width: 30rem;">
+    <div class="card-header"><h2>New Product</h2></div>
+      <div class="card-body">
+        <%= simple_form_for(@product) do |f| %>
+        <div class="form-inputs" style="width: 27rem;">
+          <%= f.input :name, placeholder: 'T-Shirt Besouro Black' %>
+          <%= f.input :category, placeholder: 'Vinil' %>
+          <%= f.input :description, placeholder: 'Bla bla bla' %>
+          <%= f.input :price %>
+          <%= f.input :stock %>
+          <%= f.input :photo, as: :file %>
+          <%= f.submit class: "btn btn-primary" %>
+          <%= link_to 'Back to Products', products_path %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
