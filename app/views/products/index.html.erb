@@ -5,11 +5,10 @@
     <% @products.each do |product| %>
       <div class="col-md-12 col-lg-6">
         <div class="card-product my-4 mr-4">
-          <% if product.photo.attached?  %>
+
             <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
-          <% else %>
-            <img src=<%= "#{product.img_url}" %> />
-          <% end %>
+
+
             <div class="card-product-infos">
               <h5><%= link_to product.name, product_path(product) %></h5>
               <p id="text-color">Artist: <%= product.user.artist %></p>
