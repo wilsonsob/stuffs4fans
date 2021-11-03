@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
 require 'faker'
 
 Order.destroy_all
@@ -13,7 +7,7 @@ User.destroy_all
 
 puts "destroy done!!!"
 
-User.create(full_name: 'Switchfeet', email: 'switchfeet@teste.com', password: '123456', artist: 'Switchfeet', admin: false, seller: true)
+user1 = User.create(full_name: 'Switchfeet', email: 'switchfeet@teste.com', password: '123456', artist: 'Switchfeet', admin: false, seller: true)
 User.create(full_name: 'All Souls Matter', email: 'allsoulsmatter@teste.com', password: '123456', artist: 'All Souls Matter', admin: false, seller: true)
 User.create(full_name: 'Shake the Dust', email: 'shakethedust@teste.com', password: '123456', artist: 'Shake the Dust', admin: false, seller: true)
 User.create(full_name: 'Coding Bootcamp', email: 'codingbootcamp@teste.com', password: '123456', artist: 'Coding Bootcamp', admin: false, seller: true)
@@ -28,20 +22,22 @@ User.create(full_name: 'Coding Bootcamp', email: 'codingbootcamp@teste.com', pas
 end
 puts "users done!!!"
 
-# product_name = ["Tee", "Sweatpants", "Long Sleeve Tee", "Bag", "Sticker Pack",
-#                 "Baseball Cap", "Pin Set", "Bracelet", "Stainless Steel Camp Mug",
-#                 "Poster", "Face Mask", "Hoodie", "CD", "Vinyl", "Live Stream Ticket"]
+product_name = ["Tee", "Sweatpants", "Long Sleeve Tee", "Bag", "Sticker Pack",
+                "Baseball Cap", "Pin Set", "Bracelet", "Stainless Steel Camp Mug",
+                "Poster", "Face Mask", "Hoodie", "CD", "Vinyl", "Live Stream Ticket"]
 
-# product_category = ["Clothing", "Ticket", "Accessories", "Media"]
+product_category = ["Clothing", "Ticket", "Accessories", "Media"]
 
-# product_description = ["Excellent quality",
-#                        "With the artist autograph",
-#                        "Original design"]
+product_description = ["Excellent quality",
+                       "With the artist autograph",
+                       "Original design"]
 
-# Product.create(name: 'Interrobang White Opaque Vinyl', category: 'Media', price: 100, stock: 5,
-#                description: 'Limited Edition White Opaque Vinyl *Limited stock remaining!',
-#                user_id: 1,
-#                img_url: "https://res.cloudinary.com/doytrcpmk/image/upload/v1635956289/media_bhvhgj.jpg")
+product = Product.create!(name: 'Interrobang White Opaque Vinyl', category: 'Media', price: 100, stock: 5,
+               description: 'Limited Edition White Opaque Vinyl *Limited stock remaining!',
+               user: user1)
+file = URI.open('https://source.unsplash.com/aK3kzv5yGwU/300x300')
+product.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
 
 # Product.create(name: 'Presence Shirt', category: 'Clothing', price: 40, stock: 20,
 #                description: 'You are not here for the sake of a perfect existence. The magic of your soul is not
@@ -69,7 +65,7 @@ puts "users done!!!"
 #                   img_url: "https://res.cloudinary.com/doytrcpmk/image/upload/v1635437117/ignat-kushanrev-y9DEa0AqluQ-unsplash_qf23cp.jpg")
 # end
 
-# puts "products done!!!"
+puts "products done!!!"
 
 User.create(full_name: 'Luanda', email: 'luanda@admin.com', password: '123456', admin: true, seller: false)
 User.create(full_name: 'Eugenia', email: 'eugenia@admin.com', password: '123456', admin: true, seller: false)
