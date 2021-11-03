@@ -22,6 +22,7 @@
               <li class="list-group-item">Stock: <%= @product.stock %> un.</li>
             </ul>
 
+
               <% if @product.stock == 0 %>
                 <%= 'Produto indisponível' %>
               <% end %>
@@ -33,25 +34,24 @@
                   </div>
                   <div class="form-actions">
                     <%= f.submit "Buy", class: 'btn btn-danger' %>
+                    <hr>
                   </div>
                 <% end %>
               <% else %>
                 <%=link_to "Sign in to buy!", new_user_session_path%>
               <% end %>
-
-              <br>
-          </div>
-        </div>
-
-        <% if user_signed_in? && policy(@product).edit? %>
+              <% if user_signed_in? && policy(@product).edit? %>
           <%= link_to 'Edit', edit_product_path(@product) %> |
         <% end %>
         <% if user_signed_in? && policy(@product).destroy? %>
           <%= link_to 'Remove this product', product_path(@product), method: :delete, data: { confirm: "Are you sure?" } %> |
         <% end %>
-
-        <p class="btn btn-info"><%= link_to 'Back to Products', products_path %></p>
-
+        <br>
+        <p ><%= link_to 'Back to Products', products_path %></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+<br>
