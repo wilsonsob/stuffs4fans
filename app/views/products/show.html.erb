@@ -1,25 +1,27 @@
-<br>
-<br>
-<br>
-<div class="d-flex justify-content-center">
-  <div class="card text-white bg-light mb-3" style="width: 30rem;">
-    <div class="card-header" style="color:black; text-align:center;"><h2><%= @product.name %></h2></div>
-      <div class="card-body row" style="margin: auto;">
-        <div class="form-inputs" style="width: 27rem;">
-          <% if @product.photo.attached?  %>
-            <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
-          <% else %>
-            <div style="text-align:center;"><img src=<%= @product.img_url %>  style="width:100%"/></div>
-          <% end %>
-          <div style="color:black; align-items:center">
-            <br>
-              <ul class="list-group list-group-flush ">
-                <li class="list-group-item"><b>Artist: </b><%= @product.user.artist %></li>
-                <li class="list-group-item"><b>Category: </b><%= @product.category %></li>
-                <li class="list-group-item"><b>About product: </b><%= @product.description %></li>
-                <li class="list-group-item"><b>Price: </b><%= number_to_currency(@product.price) %></li>
-                <li class="list-group-item"><b>Stock: </b><%= @product.stock %> un.</li>
-              </ul>
+<div class="container mt-4">
+  <h4>Info about product</h4>
+  <div class="row">
+    <div class="col-8">
+
+      <% if @product.photo.attached?  %>
+        <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <%= SEM FOTO %>
+      <% end %>
+
+      <div class="card-body">
+        <h4 class="card-title"><%= @product.name %></h4>
+      </div>
+        </div>
+          <div class="col-12 col-lg-6">
+
+            <ul class="list-group list-group-flush ">
+              <li class="list-group-item">Category: <%= @product.category %></li>
+              <li class="list-group-item">About product: <%= @product.description %></li>
+              <li class="list-group-item">Price: <%= number_to_currency(@product.price) %></li>
+              <li class="list-group-item">Stock: <%= @product.stock %> un.</li>
+            </ul>
+
               <% if @product.stock == 0 %>
                 <%= 'Produto indisponível' %>
               <% end %>
@@ -31,24 +33,25 @@
                   </div>
                   <div class="form-actions">
                     <%= f.submit "Buy", class: 'btn btn-danger' %>
-                    <hr>
                   </div>
                 <% end %>
               <% else %>
                 <%=link_to "Sign in to buy!", new_user_session_path%>
               <% end %>
-              <% if user_signed_in? && policy(@product).edit? %>
+
+              <br>
+          </div>
+        </div>
+
+        <% if user_signed_in? && policy(@product).edit? %>
           <%= link_to 'Edit', edit_product_path(@product) %> |
         <% end %>
         <% if user_signed_in? && policy(@product).destroy? %>
           <%= link_to 'Remove this product', product_path(@product), method: :delete, data: { confirm: "Are you sure?" } %> |
         <% end %>
-        <br>
-        <p ><%= link_to 'Back to Products', products_path %></p>
-          </div>
-        </div>
-      </div>
+
+        <p class="btn btn-info"><%= link_to 'Back to Products', products_path %></p>
+
     </div>
   </div>
 </div>
-<br>
