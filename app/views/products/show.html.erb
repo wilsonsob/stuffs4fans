@@ -9,7 +9,7 @@
           <% if @product.photo.attached?  %>
             <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
           <% else %>
-            <div style="text-align:center;"><img src=<%= @product.img_url %> /></div>
+            <div style="text-align:center;"><img src=<%= @product.img_url %>  style="width:100%"/></div>
           <% end %>
           <div style="color:black; align-items:center">
             <br>
