@@ -4,7 +4,7 @@
     <% @users.each do |user| %>
       <div class="col-md-12 col-lg-6">
         <div class="card-product my-4 mr-4">
-          <%= cl_image_tag("artist4_bkaflt", width: 400, height: 300, crop: :fill) %>
+          <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
             <div class="card-product-infos">
               <h5><%= link_to user.artist, artist_path(user) %></h5>
             </div>
