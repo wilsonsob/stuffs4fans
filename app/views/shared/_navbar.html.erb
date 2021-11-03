@@ -35,8 +35,8 @@
         </li>
       <% else %>
         <li class="d-lg-inline-flex">
-          <%= link_to "Login", new_user_session_path, class: "a-primary" %>
-          <%= link_to "Sign Up", "/users/sign_up", class: "a-primary" %>
+          <%= link_to "Login", new_user_session_path, class: "a-primary", id: "login" %>
+          <%= link_to "Sign Up", "/users/sign_up", class: "a-primary", id: "signup" %>
         </li>
       <% end %>
     </ul>
